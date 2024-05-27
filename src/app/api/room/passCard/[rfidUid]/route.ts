@@ -51,12 +51,23 @@ export async function POST(request: Request, {params}: {params: {rfidUid: string
             data: {
                 isInside: user.isInside
             }
-        });
+        })
+
+        const userToReturn = {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            department: user.department,
+            isInside: user.isInside
+        }
+
 
         if(user.isInside){
-            return NextResponse.json({success:true ,message:"Kullanıcı başarıyla giriş yaptı!", user:user} , {status:200});
+            return NextResponse.json({success:true ,message:"Kullanıcı başarıyla giriş yaptı!", user:userToReturn} , {status:200});
         }
-        return NextResponse.json({success:true ,message:"Kullanıcı başarıyla çıkış yaptı!", user:user} , {status:200});
+
+        return NextResponse.json({success:true ,message:"Kullanıcı başarıyla çıkış yaptı!", user:userToReturn} , {status:200});
     }catch(err){
         return NextResponse.json({success:false, message:err.message}, {status: 500})
     }

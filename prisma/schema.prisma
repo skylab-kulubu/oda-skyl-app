@@ -17,7 +17,10 @@ model User {
   id         Int       @id @default(autoincrement())
   firstName  String
   lastName   String
-  rfidUid    String
+  email      String
+  password   String
+  role       String
+  rfidUid    String?
   department String
   isInside   Boolean
   UserLog    UserLog[]
