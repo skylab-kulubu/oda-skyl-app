@@ -1,0 +1,13 @@
+import { NextApiRequest, NextApiResponse } from "next";
+import prisma from "../../../../../prisma/client";
+import {NextResponse } from "next/server";
+
+export async function GET() {
+    try{
+        const users = await prisma.user.findMany();
+
+        return NextResponse.json({success:true, message:"Kullanıcılar getirildi!", users:users}, {status:200});
+    }catch(err){
+        return NextResponse.json({success:false, message:err.message}, {status: 500})
+    }
+}
