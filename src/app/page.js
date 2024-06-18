@@ -79,7 +79,7 @@ export default function Home() {
     if (!isInitialRender.current) {
       setIsLoading(false);
     }
-  }, roomStatus);
+  }, [roomStatus.isEmpty, roomStatus.eventName, roomStatus.endTime]);
 
   const isEventOngoing = (event) => {
     const currentDateTime = new Date();
@@ -152,7 +152,7 @@ export default function Home() {
           </div>
         </section>
         <a
-          href="https://calendar.google.com/calendar/embed?src=bc6edfd480bce7cd796fdc737fb81ea97053ac5d51208e1cff1f04bb46168f1b%40group.calendar.google.com&ctz=Europe%2FIstanbul"
+          href="https://calendar.google.com/calendar/embed?src=33d9d22de488b646f863a248f328b5e9a6fb20a3b3a9bfb14b8e676a5d9bc05b%40group.calendar.google.com&ctz=Europe%2FIstanbul"
           target="_blank"
           rel="noopener noreferrer"
           className="absolute bottom-16 sm:bottom-12 py-4 px-20 md:hover:scale-110 transition-transform flex justify-center items-center text-white dark:text-darkBlue bg-darkBlue dark:bg-white"

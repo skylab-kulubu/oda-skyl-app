@@ -1,7 +1,7 @@
 const { google } = require("googleapis");
 
-import { getCredentials } from "@/app/_utils/credentials";
-import { getGMT3Time, isEventOngoing } from "@/app/_utils/dates";
+import { getCredentials } from "../../_utils/credentials";
+import { getGMT3Time, isEventOngoing } from "../../_utils/dates";
 
 export async function GET() {
   const creds = await getCredentials();

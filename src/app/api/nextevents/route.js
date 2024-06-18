@@ -1,5 +1,5 @@
-import { getCredentials } from "@/app/_utils/credentials";
-import { getGMT3Time } from "@/app/_utils/dates";
+import { getCredentials } from "../../_utils/credentials";
+import { getGMT3Time } from "../../_utils/dates";
 
 const { google } = require("googleapis");
 
