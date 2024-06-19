@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-
+import PeopleIntheRoom from "./PeopleInTheRoom";
 export default function Home() {
   const isInitialRender = useRef(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +19,7 @@ export default function Home() {
     const fetchOngoingEvents = async () => {
       try {
         const response = await axios.get(
-           "http://localhost:3000/api/ongoingevents"
+          "http://localhost:3000/api/ongoingevents"
           //"https://oda.yildizskylab.com/api/ongoingevents"
         );
         setOngoingEvents(response.data.ongoing_events || []);
@@ -109,7 +109,7 @@ export default function Home() {
 
   return (
     <div className="dark">
-      <div className="h-screen transition-all relative font-inter flex items-center justify-center bg-white dark:bg-darkBlue">
+      <div className="min-h-screen transition-all relative font-inter flex items-center justify-center bg-white dark:bg-darkBlue">
         <a
           href="http://yildizskylab.com"
           className="absolute p-6 cursor-pointer tracking-[0.25rem] text-xl sm:-rotate-90 left-6 sm:left-2 top-8 sm:top-16 font-bebasNeue text-darkBlue dark:text-white"
@@ -117,50 +117,53 @@ export default function Home() {
           SKY LAB
         </a>
 
-        <section className="flex flex-col justify-between items-center">
-          <div className="flex flex-col items-center justify-center">
-            {roomStatus.isEmpty == null && (
-              <>
-                <span className="loader"></span>
+        <main className="flex max-md:flex-col max-md:mt-32 gap-10 justify-center items-center w-full md:pr-10">
+          <section className="flex flex-col justify-between items-center md:w-[95%]">
+            <div className="flex flex-col items-center justify-center">
+              {roomStatus.isEmpty == null && (
+                <>
+                  <span className="loader"></span>
+                  <h1 className="text-darkBlue dark:text-white mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
+                    Yükleniyor...
+                  </h1>
+                </>
+              )}
+              {roomStatus.isEmpty != null && (
+                <div className="bg-white flex justify-between items-center w-60 sm:w-80 aspect-square overflow-hidden rounded-[50%]">
+                  <Image
+                    src={`/${roomStatus.isEmpty ? "happy" : "sad"}.svg`}
+                    alt="Skylab"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </div>
+              )}
+              {roomStatus.isEmpty == true && (
                 <h1 className="text-darkBlue dark:text-white mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
-                  Yükleniyor...
+                  Oda şu an boş.
                 </h1>
-              </>
-            )}
-            {roomStatus.isEmpty != null && (
-              <div className="bg-white flex justify-between items-center w-60 sm:w-80 aspect-square overflow-hidden rounded-[50%]">
-                <Image
-                  src={`/${roomStatus.isEmpty ? "happy" : "sad"}.svg`}
-                  alt="Skylab"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
-            )}
-            {roomStatus.isEmpty == true && (
-              <h1 className="text-darkBlue dark:text-white mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
-                Oda şu an boş.
-              </h1>
-            )}
-            {roomStatus.isEmpty == false && (
-              <p className="mt-2 md:mt-6 w-80 md:w-96 font-medium text-lg md:text-xl text-center text-darkBlue dark:text-white">
-                Şu anda: {roomStatus.eventName} etkinliği mevcut. En yakın{" "}
-                {new Date(roomStatus.endTime).toLocaleTimeString()} saatinde
-                kullanılabilir.
-              </p>
-            )}
-          </div>
-        </section>
-        <a
-          href="https://calendar.google.com/calendar/embed?src=33d9d22de488b646f863a248f328b5e9a6fb20a3b3a9bfb14b8e676a5d9bc05b%40group.calendar.google.com&ctz=Europe%2FIstanbul"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute bottom-16 sm:bottom-12 py-4 px-20 md:hover:scale-110 transition-transform flex justify-center items-center text-white dark:text-darkBlue bg-darkBlue dark:bg-white"
-        >
-          Takvime Git
-        </a>
+              )}
+              {roomStatus.isEmpty == false && (
+                <p className="mt-2 md:mt-6 w-80 md:w-96 font-medium text-lg md:text-xl text-center text-darkBlue dark:text-white">
+                  Şu anda: {roomStatus.eventName} etkinliği mevcut. En yakın{" "}
+                  {new Date(roomStatus.endTime).toLocaleTimeString()} saatinde
+                  kullanılabilir.
+                </p>
+              )}
+              <a
+                href="https://calendar.google.com/calendar/embed?src=33d9d22de488b646f863a248f328b5e9a6fb20a3b3a9bfb14b8e676a5d9bc05b%40group.calendar.google.com&ctz=Europe%2FIstanbul"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" py-4 px-20 mt-12 sm:mt-10 md:hover:scale-110 transition-transform flex justify-center items-center text-white dark:text-darkBlue bg-darkBlue dark:bg-white"
+              >
+                Takvime Git
+              </a>
+            </div>
+          </section>
+          <PeopleIntheRoom />
+        </main>
       </div>
     </div>
   );
