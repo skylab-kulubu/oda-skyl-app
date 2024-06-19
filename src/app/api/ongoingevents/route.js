@@ -3,6 +3,7 @@ const { google } = require("googleapis");
 import { getCredentials } from "../../_utils/credentials";
 import { getGMT3Time, isEventOngoing } from "../../_utils/dates";
 
+export const dynamic = 'force-dynamic';
 export async function GET() {
   const creds = await getCredentials();
   let ongoingEvents = [];

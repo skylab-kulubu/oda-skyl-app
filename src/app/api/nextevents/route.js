@@ -3,6 +3,7 @@ import { getGMT3Time } from "../../_utils/dates";
 
 const { google } = require("googleapis");
 
+export const dynamic = 'force-dynamic';
 export async function GET() {
   const creds = await getCredentials();
   let nextEvents = [];

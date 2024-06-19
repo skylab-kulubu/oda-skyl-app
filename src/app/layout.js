@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Oda Skyl.app",
-  description: "odaskylapp",
+  title: "Oda Yıldızskylab",
+  description: "odayildizskylab",
 };
 
 export default function RootLayout({ children }) {

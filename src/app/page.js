@@ -19,7 +19,8 @@ export default function Home() {
     const fetchOngoingEvents = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/ongoingevents"
+           "http://localhost:3000/api/ongoingevents"
+          //"https://oda.yildizskylab.com/api/ongoingevents"
         );
         setOngoingEvents(response.data.ongoing_events || []);
       } catch (error) {
@@ -31,6 +32,7 @@ export default function Home() {
       try {
         const response = await axios.get(
           "http://localhost:3000/api/nextevents"
+          //"https://oda.yildizskylab.com/api/nextevents"
         );
         const allNextEvents = response.data.next_events || [];
 

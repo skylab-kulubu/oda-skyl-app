@@ -33,3 +33,9 @@ model UserLog {
   enterDate DateTime
   leaveDate DateTime?
 }
+
+model Environment {
+  id      Int @id @default(autoincrement())
+  name    String
+  value   String
+}
