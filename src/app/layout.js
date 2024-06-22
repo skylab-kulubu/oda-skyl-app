@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Oda Yıldızskylab",
+  title: "Oda SKY LAB",
   description: "odayildizskylab",
 };
 
