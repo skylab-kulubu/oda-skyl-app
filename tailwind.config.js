@@ -17,5 +17,34 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scrollbarThin": {
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgb(180 180 180) transparent",
+        },
+        ".scrollbarWebkit": {
+          "&::-webkit-scrollbar": {
+            width: "7px",
+          },
+
+          "&::-webkit-scrollbar-track": {
+            background: "transparent",
+            borderRadius: "0.5rem",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgb(255 255 255)",
+            borderRadius: "0.5rem",
+            opacity: "0.2",
+            "&:hover": {
+              opacity: "0.3",
+            },
+          },
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
+  ],
 };

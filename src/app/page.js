@@ -109,7 +109,7 @@ export default function Home() {
 
   return (
     <div className="dark">
-      <div className="min-h-screen transition-all relative font-inter flex items-center justify-center bg-white dark:bg-darkBlue">
+      <div className="min-h-screen transition-all font-inter flex items-center justify-center bg-white dark:bg-darkBlue pb-8">
         <a
           href="http://yildizskylab.com"
           className="absolute p-6 cursor-pointer tracking-[0.25rem] text-xl sm:-rotate-90 left-6 sm:left-2 top-8 sm:top-16 font-bebasNeue text-darkBlue dark:text-white"
@@ -117,8 +117,8 @@ export default function Home() {
           SKY LAB
         </a>
 
-        <main className="flex max-md:flex-col max-md:mt-32 gap-10 justify-center items-center w-full md:pr-10">
-          <section className="flex flex-col justify-between items-center md:w-[95%]">
+        <main className="flex max-lg:flex-col max-lg:gap-12 justify-center items-center h-full w-full px-8 md:pr-7 lg:pl-72 max-lg:mt-24">
+          <section className="flex flex-col justify-between items-center md:w-[80%] text-center">
             <div className="flex flex-col items-center justify-center">
               {roomStatus.isEmpty == null && (
                 <>
