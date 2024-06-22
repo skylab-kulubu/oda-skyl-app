@@ -117,7 +117,7 @@ export default function Home() {
           SKY LAB
         </a>
 
-        <main className="flex max-lg:flex-col max-lg:gap-12 justify-center items-center h-full w-full px-8 md:pr-7 lg:pl-[20rem] max-lg:mt-24">
+        <main className="flex max-lg:flex-col max-lg:gap-12 justify-center items-center h-full w-full px-8 md:pr-7 lg:pl-72 max-lg:mt-24">
           <section className="flex flex-col justify-between items-center md:w-[80%] text-center">
             <div className="flex flex-col items-center justify-center">
               {roomStatus.isEmpty == null && (

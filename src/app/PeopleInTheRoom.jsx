@@ -9,7 +9,7 @@ export default function PeopleInTheRoom() {
       try {
         const response = await axios.get(
           "http://localhost:3000/api/room/getInsideUsers"
-          // "https://oda.yildizskylab.com/api/room/getInsideUsers"
+          //"https://oda.yildizskylab.com/api/room/getInsideUsers"
         );
         setPerson(response.data.users || []);
         console.log(person);
@@ -41,7 +41,7 @@ export default function PeopleInTheRoom() {
             ))}
           </ul>
           <p className="text-darkBlue dark:text-white mt-4 text-sm sm:text-base md:text-lg">
-            Kişi sayı: {person.length}
+            Kişi sayısı: {person.length}
           </p>
         </div>
       ) : (
