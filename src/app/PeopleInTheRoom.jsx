@@ -46,7 +46,7 @@ export default function PeopleInTheRoom() {
         </div>
       ) : (
         <p className="text-darkBlue dark:text-white font-bold text-lg sm:text-xl md:text-2xl opacity-70 text-center">
-          Şu an odada kimse yok &#41;':
+          Şu an odada kimse yok
         </p>
       )}
     </div>
