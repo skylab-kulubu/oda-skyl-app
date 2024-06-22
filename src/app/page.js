@@ -145,13 +145,14 @@ export default function Home() {
                   Odada bir etkinlik yok.
                 </h1>
               )}
-              {roomStatus.isEmpty == false && (
-                <p className="mt-2 md:mt-6 w-80 md:w-96 font-medium text-lg md:text-xl text-center text-darkBlue dark:text-white">
-                  Şu anda: {roomStatus.eventName} etkinliği mevcut. En yakın{" "}
-                  {new Date(roomStatus.endTime).toLocaleTimeString()} saatinde
-                  kullanılabilir.
+             {roomStatus.isEmpty == false && (
+                <p className="mt-2 md:mt-6 w-80 md:w-96 font-bold text-lg md:text-xl text-center text-darkBlue dark:text-white">
+                  Şu anda: {roomStatus.eventName} etkinliği mevcut. {(roomStatus.endTime
+                    ? `Oda en erken ${new Date(roomStatus.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} saatinde kullanılabilir.`
+                    : "Oda gün boyunca kullanımda olacak.")}
                 </p>
               )}
+
               <a
                 href="https://calendar.google.com/calendar/embed?src=33d9d22de488b646f863a248f328b5e9a6fb20a3b3a9bfb14b8e676a5d9bc05b%40group.calendar.google.com&ctz=Europe%2FIstanbul"
                 target="_blank"
