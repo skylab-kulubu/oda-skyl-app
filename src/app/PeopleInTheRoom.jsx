@@ -36,7 +36,7 @@ export default function PeopleInTheRoom() {
                 className="text-darkBlue dark:text-white mt-4 text-sm sm:text-base md:text-lg grid col-span-2"
               >
                 {person.firstName} {person.lastName}{" "}
-                <span>Rol: {person.department}</span>
+                <span>{person.department}</span>
               </li>
             ))}
           </ul>
@@ -46,7 +46,7 @@ export default function PeopleInTheRoom() {
         </div>
       ) : (
         <p className="text-darkBlue dark:text-white font-bold text-lg sm:text-xl md:text-2xl opacity-70 text-center">
-          Şu an odada kimse yok
+          Odada kimse yok.
         </p>
       )}
     </div>

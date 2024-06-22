@@ -142,7 +142,7 @@ export default function Home() {
               )}
               {roomStatus.isEmpty == true && (
                 <h1 className="text-darkBlue dark:text-white mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
-                  Oda şu an boş.
+                  Odada bir etkinlik yok.
                 </h1>
               )}
               {roomStatus.isEmpty == false && (
