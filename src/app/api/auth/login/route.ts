@@ -18,7 +18,7 @@ const user = await prisma.user.findFirst({
 
     if(user && bcrypt.compareSync(body.password, user.password)){
         const secret = new TextEncoder().encode(process.env.JWT_SECRET)
-        const token = await new SignJWT({sub:user.id, role:user.role})
+        const token = await new SignJWT({sub:user.id, email: user.email, role:user.role})
         .setProtectedHeader({alg:"HS256"})
         .setExpirationTime("1h")
         .sign(secret)

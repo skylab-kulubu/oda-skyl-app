@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import PeopleIntheRoom from "./PeopleInTheRoom";
+import PeopleIntheRoom from "./components/PeopleInTheRoom";
 export default function Home() {
   const isInitialRender = useRef(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -112,9 +112,16 @@ export default function Home() {
       <div className="min-h-screen transition-all font-inter flex items-center justify-center bg-white dark:bg-darkBlue pb-8">
         <a
           href="http://yildizskylab.com"
-          className="absolute p-6 cursor-pointer tracking-[0.25rem] text-xl sm:-rotate-90 left-6 sm:left-2 top-8 sm:top-16 font-bebasNeue text-darkBlue dark:text-white"
+          className="absolute p-6 cursor-pointer tracking-[0.25rem] text-xl sm:-rotate-90 left-6 sm:left-2 top-8 sm:top-16 font-bebasNeue text-[#eadaff] hover:text-[#27a68e] transition-colors duration-300"
         >
           SKY LAB
+        </a>
+
+        <a
+          href="/panel"
+          className="absolute p-6 cursor-pointer tracking-[0.25rem] text-xl sm:-rotate-90 left-6 sm:left-2 bottom-8 sm:bottom-16 font-bebasNeue text-[#eadaff] hover:text-[#27a68e] transition-colors duration-300"
+        >
+          PANEL
         </a>
 
         <main className="flex max-lg:flex-col max-lg:gap-12 justify-center items-center h-full w-full px-8 md:pr-7 lg:pl-72 max-lg:mt-24">
@@ -123,7 +130,7 @@ export default function Home() {
               {roomStatus.isEmpty == null && (
                 <>
                   <span className="loader"></span>
-                  <h1 className="text-darkBlue dark:text-white mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
+                  <h1 className="text-[#eadaff] mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
                     Yükleniyor...
                   </h1>
                 </>
@@ -141,15 +148,21 @@ export default function Home() {
                 </div>
               )}
               {roomStatus.isEmpty == true && (
-                <h1 className="text-darkBlue dark:text-white mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
+                <h1 className="text-[#eadaff] mt-6 font-bold text-4xl sm:text-5xl md:text-7xl">
                   Odada bir etkinlik yok.
                 </h1>
               )}
-             {roomStatus.isEmpty == false && (
-                <p className="mt-2 md:mt-6 w-80 md:w-96 font-bold text-lg md:text-xl text-center text-darkBlue dark:text-white">
-                  Şu anda: {roomStatus.eventName} etkinliği mevcut. {(roomStatus.endTime
-                    ? `Oda en erken ${new Date(roomStatus.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} saatinde kullanılabilir.`
-                    : "Oda gün boyunca kullanımda olacak.")}
+              {roomStatus.isEmpty == false && (
+                <p className="mt-2 md:mt-6 w-80 md:w-96 font-bold text-lg md:text-xl text-center text-[#eadaff]">
+                  Şu anda: {roomStatus.eventName} etkinliği mevcut.{" "}
+                  {roomStatus.endTime
+                    ? `Oda en erken ${new Date(
+                        roomStatus.endTime
+                      ).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })} saatinde kullanılabilir.`
+                    : "Oda gün boyunca kullanımda olacak."}
                 </p>
               )}
 
@@ -157,7 +170,7 @@ export default function Home() {
                 href="https://calendar.google.com/calendar/embed?src=33d9d22de488b646f863a248f328b5e9a6fb20a3b3a9bfb14b8e676a5d9bc05b%40group.calendar.google.com&ctz=Europe%2FIstanbul"
                 target="_blank"
                 rel="noopener noreferrer"
-                className=" py-4 px-20 mt-12 sm:mt-10 md:hover:scale-110 transition-transform flex justify-center items-center text-white dark:text-darkBlue bg-darkBlue dark:bg-white"
+                className="rounded-lg py-4 px-20 mt-48 sm:mt-10 md:hover:scale-110 transition-transform flex justify-center items-center text-white dark:text-darkBlue bg-[#eadaff]"
               >
                 Takvime Git
               </a>

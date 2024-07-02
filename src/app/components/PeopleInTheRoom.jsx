@@ -26,26 +26,26 @@ export default function PeopleInTheRoom() {
     <div className=" bg-slate-300 bg-opacity-20 rounded-lg py-3 px-4 max-w-80 max-h-96 box-border overflow-y-scroll scrollbarThin scrollbarWebkit">
       {person && person.length > 0 ? (
         <div className="opacity-70">
-          <h1 className="text-darkBlue dark:text-white mb-6 font-bold text-lg sm:text-xl md:text-2xl">
+          <h1 className="text-[#eadaff] mb-6 font-bold text-lg sm:text-xl md:text-2xl">
             Odada kimler var?
           </h1>
           <ul>
             {person.map((person) => (
               <li
                 key={person.id}
-                className="text-darkBlue dark:text-white mt-4 text-sm sm:text-base md:text-lg grid col-span-2"
+                className="text-[#eadaff] mt-4 text-sm sm:text-base md:text-lg grid col-span-2"
               >
                 {person.firstName} {person.lastName}{" "}
                 <span>{person.department}</span>
               </li>
             ))}
           </ul>
-          <p className="text-darkBlue dark:text-white mt-4 text-sm sm:text-base md:text-lg">
+          <p className="text-[#eadaff] mt-4 text-sm sm:text-base md:text-lg">
             Kişi sayısı: {person.length}
           </p>
         </div>
       ) : (
-        <p className="text-darkBlue dark:text-white font-bold text-lg sm:text-xl md:text-2xl opacity-70 text-center">
+        <p className="text-[#eadaff] font-bold text-lg sm:text-xl md:text-2xl opacity-70 text-center">
           Odada kimse yok.
         </p>
       )}
