@@ -57,7 +57,6 @@ const user = await prisma.user.findFirst({
             data:{
                 ip:ip,
                 action:"USER_LOGIN",
-                userId:user.id,
                 timestamp:new Date(),
                 success:false
             }
